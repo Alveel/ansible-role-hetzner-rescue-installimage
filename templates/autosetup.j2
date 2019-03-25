@@ -1,10 +1,10 @@
 IMAGE {{ image }}
 BOOTLOADER {{ bootloader }}
-HOSTNAME {{ inventory_hostname_short }}
 {% if sshkey_url %}
 # SSH keys to put on the installed system
 SSHKEYS_URL {{ sshkey_url }}
 {% endif %}
+HOSTNAME {{ hostname }}
 
 # Hard disk drives to wipe and use
 {% for device in ansible_devices if device.startswith("sd") or device.startswith("nvme") -%}
